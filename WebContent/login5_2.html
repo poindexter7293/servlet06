@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	document.addEventListener("DOMcontentLoaded", function(){
+	const form = docuement.getElementById("loginForm");
+	
+	form.addEventListner("submit", function(e){
+		const userId = form.user_id.value.trim();
+		const userPw = form.user_pw.value.trim();
+		if(userId == "" || userPw == ""){
+		alert("아이디와 비밀번호는 필수 입력 항목입니다.");
+		e.preventDefault();
+		return;
+		}
+	});
+	
+})
+
+</script>
+
+</head>
+<body>
+	<form action="/pro06/login5" method = "post" name="loginform">
+	
+	아이디 : <input type = "text" name="user_id" required> <br>
+	비밀번호 : <input type = "password" name="user_pw" required> <br>
+	<input type = "hidden" name="user_address" value="부산">
+	<button type="submit">로그인요청</button>
+	<button type="reset">다시입력</button>
+	</form>
+</body>
+</html>

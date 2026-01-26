@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function fn_validate(event){
+		event.preventDefault();
+		let frmLogin = document.login5;
+		let user_id = frmLogin.user_id.value;
+		let user_pw = frmLogin.user_pw.value;
+		
+		if(user_id.trim() === "" || user_pw.trim() === ""){
+			alert("아이디와 비밀번호를 필수로 입력해야합니다.");
+		}else{
+			frmLogin.method = "post";
+			frmLogin.action = "login5";
+			frmLogin.submit();
+		}
+	}
+</script>
+
+</head>
+<body>
+	<form action="login5" method = "post" name="login5" onsubmit="fn_validate(event)">
+	아이디 : <input type = "text" name="user_id"> <br>
+	비밀번호 : <input type = "password" name="user_pw"> <br>
+	<input type = "hidden" name="user_address" value="부산">
+
+	
+	<input type="submit" value="로그인 요청">
+	<input type="reset" value="다시입력">
+	</form>
+</body>
+</html>
